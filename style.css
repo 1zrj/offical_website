@@ -99,6 +99,10 @@ img {
     text-align: left;
   }
 
+  .slide-caption > * {
+    opacity: 0;
+  }
+
   .blackdrop {
     background: var(--backdrop-color);
     position: absolute;
