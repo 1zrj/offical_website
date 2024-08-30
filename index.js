@@ -12,7 +12,7 @@ window.addEventListener("scroll", () => {
         headerEl.classList.remove("sticky")
     }
 
-    if(window.scrollY > 2000) {
+    if (window.scrollY > 2000) {
         scrollToTop.style.display = "block";
     } else {
         scrollToTop.style.display = "none";
@@ -60,4 +60,30 @@ filterBtns.addEventListener("click", e => {
         isotope.arrange({ filter: filterOption });
     }
 
+})
+
+const staggeringOption = {
+    delay: 300,
+    distance: "50px",
+    duration: 500,
+    easing: "ease-in-out",
+    origin: "bottom"
+}
+
+ScrollReveal().reveal(".feature", { ...staggeringOption, interval: 350 });
+ScrollReveal().reveal(".service-item", { ...staggeringOption, interval: 350 });
+
+
+ScrollReveal().reveal(".data-section", {
+    beforeReveal: () => {
+        anime({
+            targets: ".data-section .num",
+            innerHTML: (el) => {
+                return [0, el.innerHTML];
+            },
+            duration: 2000,
+            round: 1,
+            easing: "easeInExpo"
+        });
+    }
 })
