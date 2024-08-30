@@ -23,7 +23,7 @@ img {
 
 header {
   width: 100vw;
-  height: 80px;
+  height: 60px;
   display: grid;
   padding: 0 40px;
 
@@ -57,6 +57,27 @@ header burger {
   display: none;
 }
 
+header.sticky {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 0 18px rgba(0, 0 ,0, 0.2);
+  animation: dropDown 0.5s ease-in-out forwards;
+}
+
+header.sticky .logo,
+header.sticky nav a,
+header.sticky nav i {
+  color: var(--text-color-dark);
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .glide {
   position: relative;
   top: -80px;
@@ -548,6 +569,12 @@ footer {
   grid-column : 1 / -1;
   justify-self: center;
   color: white;
+}
+
+.scroll-to-top {
+  display: none;
+  position: relative;
+  z-index: 300;
 }
 
 .scroll-to-top a {

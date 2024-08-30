@@ -1,3 +1,24 @@
+const headerEl = document.querySelector("header");
+const scrollToTop = document.querySelector(".scroll-to-top");
+
+window.addEventListener("scroll", () => {
+    let height = headerEl.getBoundingClientRect().height;
+
+    if (window.scrollY - height > 800) {
+        if (!headerEl.classList.contains("sticky")) {
+            headerEl.classList.add("sticky");
+        }
+    } else {
+        headerEl.classList.remove("sticky")
+    }
+
+    if(window.scrollY > 2000) {
+        scrollToTop.style.display = "block";
+    } else {
+        scrollToTop.style.display = "none";
+    }
+})
+
 const glide = new Glide(".glide")
 const captionEl = document.querySelectorAll(".slide-caption")
 
