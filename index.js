@@ -87,3 +87,15 @@ ScrollReveal().reveal(".data-section", {
         });
     }
 })
+
+const scroll = new SmoothScroll('nav a[href*="#"], .scroll-to-top a[href*="#"]', {
+    header: "header",
+    offset: 80
+});
+
+const exploreBtnEls = document.querySelectorAll(".explore-btn")
+exploreBtnEls.forEach(exploreBtnEl => {
+    exploreBtnEl.addEventListener("click", () => {
+        scroll.animateScroll(document.querySelector("#about-us"));
+    })
+})
