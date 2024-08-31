@@ -60,7 +60,7 @@ header burger {
 header.sticky {
   position: fixed;
   background-color: white;
-  box-shadow: 0 0 18px rgba(0, 0 ,0, 0.2);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
   animation: dropDown 0.5s ease-in-out forwards;
 }
 
@@ -74,10 +74,12 @@ header.sticky nav i {
   from {
     transform: translateY(-100px);
   }
+
   to {
     transform: translateY(0);
   }
 }
+
 .glide {
   position: relative;
   top: -80px;
@@ -436,7 +438,7 @@ section {
   font-size: 44px;
 }
 
-.data-piece .num{
+.data-piece .num {
   margin-top: 7px;
   font-size: 41px;
   font-weight: 600;
@@ -447,7 +449,7 @@ section {
   font-weight: 500;
 }
 
- /* 公司动态 */
+/* 公司动态 */
 .company-activities {
   margin-top: 80px;
 }
@@ -484,7 +486,7 @@ section {
   display: flex;
 }
 
-.activity .meta > p:last-child {
+.activity .meta>p:last-child {
   margin-left: 36px;
 }
 
@@ -565,8 +567,9 @@ footer {
   margin-bottom: 16px;
 }
 
-.icp-info, .rights{
-  grid-column : 1 / -1;
+.icp-info,
+.rights {
+  grid-column: 1 / -1;
   justify-self: center;
   color: white;
 }
@@ -590,4 +593,140 @@ footer {
   position: fixed;
   bottom: 60px;
   right: 30px;
+}
+
+@media (max-width: 1100px) {
+  header nav {
+    display: none;
+  }
+
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header .burger {
+    display: block;
+    width: 20px;
+    height: 6px;
+    position: relative;
+    justify-self: end;
+    cursor: pointer;
+  }
+
+  .burger-line1,
+  .burger-line2,
+  .burger-line3 {
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-color-lightest);
+  }
+
+  .burger-line1 {
+    position: absolute;
+    top: -6px;
+  }
+
+  .burger-line3 {
+    position: absolute;
+    top: 6px;
+  }
+
+  header.open nav {
+    display: grid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    grid-auto-rows: max-content;
+    justify-items: end;
+
+    padding: 0 40px;
+    opacity: 0;
+    animation: slideDown 0.6s ease-out forwards;
+  }
+
+  header.open nav > * {
+    font-size: 18px;
+    margin: 4px 0;
+    opacity: 0;
+    color: var(--text-color-darker);
+    animation: showMenu 0.5s linear forwards 0.4s;
+  }
+
+  header.opem nav > i.fas {
+    margin-top: 10px;
+  }
+
+  header.open .burger-line1,
+  header.open .burger-line2,
+  header.open .burger-line3,
+  header.sticky .burger-line1,
+  header.sticky .burger-line2,
+  header.sticky .burger-line3 {
+    background-color: var(--text-color-darker);
+    transform: 0.4s ease;
+  }
+
+  header.open .burger-line1 {
+    transform: rotate(45deg) translate(3px, 5px);
+  }
+
+  header.open .burger-line2 {
+    transform: translateX(5px);
+    opacity: 0;
+  }
+
+  header.open .burger-line3 {
+    transform: rotate(-45deg) translate(3px, -5px);
+  }
+
+  header.open .logo {
+    z-index: 40;
+    color: var(--text-color-darker);
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 100vh;
+      padding-top: 80px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes showMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-1vh);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .service-item .service-title {
+    font-size: 20px;
+  }
+
+  .service-item .service-content{
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .team-members {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+    column-gap: 6vw;
+  }
+
+  .activities{
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+  }
 }
